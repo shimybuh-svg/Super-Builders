@@ -77,3 +77,24 @@ CONFIG_TMPFS_POSIX_ACL=y
 
 # [kpm]
 CONFIG_KPM=y
+# === Network & WireGuard optimizations (добавь сюда) ===
+CONFIG_WIREGUARD=y
+CONFIG_WIREGUARD_DEBUG=n
+
+# Основные TCP congestion control (уже должны быть, но оставь)
+CONFIG_TCP_CONG_BBR=y
+CONFIG_TCP_CONG_CUBIC=y
+CONFIG_TCP_CONG_WESTWOOD=y
+
+# Queueing disciplines — сильно помогают WireGuard
+CONFIG_NET_SCH_FQ_CODEL=y
+CONFIG_NET_SCH_CAKE=y
+CONFIG_NET_SCH_HTB=y
+
+# IPSET (полезно для правил)
+CONFIG_IP_SET=y
+CONFIG_IP_SET_HASH_IP=y
+CONFIG_IP_SET_HASH_NET=y
+
+# Дополнительно для стабильности
+CONFIG_NETFILTER_XT_MATCH_WIREGUARD=y
